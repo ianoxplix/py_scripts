@@ -1,0 +1,45 @@
+try:
+    import PIL
+except ImportError:
+    import os
+
+    os.system('pip install pillow')
+    import PIL
+import os
+from PIL import Image
+
+
+def get_image_resolutions(directory):
+    image_lists = []
+    for root, _, files in os.walk(directory):
+        for filename in files:
+            if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp')):
+                paths = os.path.join(root, filename)
+
+                try:
+                    # Open the image to get its resolution
+                    img = Image.open(paths)
+                    lenths, talls = img.size
+                    img.close()
+
+                    # Append image information to the image_lists
+                    image_lists.append((paths, lenths, talls))
+                except Exception as e:
+                    # Handle errors when processing the image
+                    print(f"Error processing {paths}: {str(e)}")
+
+    return image_lists
+
+
+if __name__ == "__main__":
+#use // not \\
+    target_directory = "Your path name"
+
+    # Call the function to get the list of image resolutions
+    image_list = get_image_resolutions(target_directory)
+
+    # Display the filenames and resolutions of the images found
+    for path, tall, lenth in image_list:
+        print(f"Image: {path}")
+        print(f"Resolution: {tall}x{lenth}")
+        print("=" * 30)
