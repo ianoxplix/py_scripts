@@ -29,6 +29,8 @@ def get_image_resolutions(directory):
                     print(f"Error processing {paths}: {str(e)}")
 
     return image_lists
+#this shuld not work normaly
+
 
 
 if __name__ == "__main__":
