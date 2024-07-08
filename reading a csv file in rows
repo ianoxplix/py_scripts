@@ -1,0 +1,12 @@
+
+f = open ("FoodTruckData.csv") # Open the file "FoodTruckData.csv" in read mode
+f.readline() # Read and discard the first line of the file (likely a header row)
+str = f.readline() # Read the next line from the file and store it in the variable 'str'
+print(str) # Print the content of the variable 'str'
+str = f. readline()# Read the next line from the file and store it in the variable 'str' again
+print(str) # Print the content of the variable 'str' again
+for  i in range(10): # Read and print the next 10 lines from the file in a loop
+    str = f.readline()
+    print(str)
+# The original code snippet opens "FoodTruckData.csv", skips the header line, reads and prints the next two lines, and then closes the file
+# The additional code reads and prints the next 10 lines 
