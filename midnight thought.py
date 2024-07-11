@@ -4,6 +4,7 @@ a script that takes data from a csv and pastes it on a browesr in details depend
 import pyautogui, time
 time.sleep(10)
 x = pyautogui.size()
+print(x)
 cllck_speed = 20000
 for _ in range(cllck_speed):
     pyautogui.click()
