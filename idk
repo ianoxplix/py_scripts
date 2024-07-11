@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-url=' --your url'
+url=' --your url' yy
 response=requests.get(url)
 soup=BeautifulSoup(response.text,'lxml')
 items=soup.find_all('div',class_='col-lg-4 col-md-6 mb-4')
