@@ -1,5 +1,6 @@
 #pip install flask pandas openpyxl
 # uncomment the top line to install prequities
+#soon open a separate repo fo this
 
 from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
