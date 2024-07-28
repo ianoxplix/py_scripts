@@ -1,31 +1,43 @@
-# Created by: [Your Name]
-# Project: Turtle Graphics Art
-# Date: [Today's Date]
+# Author: Your Name
+# Project: Original Graphic Art
+# Date: Today's Date
 
-import turtle
-import random
+import turtle,random
 
-# Set up the turtle screen
+# Set up the screen
 screen = turtle.Screen()
-screen.bgcolor("black")
 screen.setup(width=1200, height=800)
+screen.bgcolor("lightblue")
 
 # Create a turtle object
-artist = turtle.Turtle()
-artist.speed(0)  # Set to fastest speed
-artist.hideturtle()  # Hide the turtle cursor
+t = turtle.Turtle()
+t.speed(0)
 
-# Define the colors to be used in the artwork
-colors = ["red", "yellow", "blue", "green", "purple", "orange", "pink"]
+# Draw concentric circles with different colors
+colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+radius = 280
 
-# Function to draw a circle with a given radius and color
+
+
+
+
 def draw_circle(radius, color):
-    artist.color(color)
-    artist.begin_fill()
-    artist.circle(radius)
-    artist.end_fill()
+    t.color(color)  # Set the color for the circle
+    t.begin_fill()  # Start filling the circle with color
+    t.circle(radius)  # Draw the circle
+    t.end_fill() 
 
-# Draw concentric circles with random colors and decreasing radius
+for color in colors:
+    t.penup()
+    t.goto(0, -radius)
+    t.pendown()
+    t.color(color)
+    t.begin_fill()
+    t.circle(radius)
+    t.end_fill()
+    radius += 40
+
+# Draw lines from the center
 num_circles = 30  # Number of circles to draw
 max_radius = 200  # Maximum radius for the outermost circle
 
@@ -33,9 +45,11 @@ for i in range(num_circles):
     radius = max_radius - (i * (max_radius / num_circles))
     color = random.choice(colors)
     draw_circle(radius, color)
-    artist.penup()
-    artist.goto(0, -radius)  # Re-center for the next circle
-    artist.pendown()
+    t.penup()
+    t.goto(0, -radius)  # Re-center for the next circle
+    t.pendown()
 
-# Keep the window open until it is closed by the user
+# Hide the turtle and display the result
+t.hideturtle()
 screen.mainloop()
+
